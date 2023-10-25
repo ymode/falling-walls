@@ -1,7 +1,8 @@
-#Falling Walls v0.5
+#Falling Walls v1.0
 
 game_state = True
 game_speed = 1500
+score_disp = grove.create_display(DigitalPin.P0, DigitalPin.P14)
 x = 2
 y = 4
 opening = randint(0, 4)
@@ -40,9 +41,11 @@ while game_state:
         clear_leds()
         player_one(x)
         wall(j)
+        sound
         if j == 4:
             if x == opening:
                 player_score += 5
+                score_disp.show(player_score)
                 game_speed -= player_score
                 pass
             else: 

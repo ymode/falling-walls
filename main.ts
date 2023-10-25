@@ -1,6 +1,7 @@
 // Falling Walls v0.5
 let game_state = true
 let game_speed = 1500
+let score_disp = grove.createDisplay(DigitalPin.P0, DigitalPin.P14)
 let x = 2
 let y = 4
 let opening = randint(0, 4)
@@ -49,6 +50,7 @@ while (game_state) {
         if (j == 4) {
             if (x == opening) {
                 player_score += 5
+                score_disp.show(player_score)
                 game_speed -= player_score
                 
             } else {
